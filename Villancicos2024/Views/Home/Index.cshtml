@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model IEnumerable<Villancicos2024.Models.ViewModels.IndexViewModel>
+<section>
+    <table>
+        <caption>
+            <h2>Villancicos </h2>
+            <a href="~/Home/Agregar">&#10010; Agregar nuevo</a>
+        </caption>
+        <thead>
+            <tr>
+                <th style="width:1%;">#</th>
+                <th style="width:90%;">Nombre del villancico</th>
+                <th style="width:9%;" colspan="2">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int count = 1;
+            }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@(count++)</td>
+                    <td>@item.Nombre</td>
+                    <td><a href="~/Home/Editar/@item.Id">&#9998;</a></td>
+                    <td><a href="~/Home/Eliminar/@item.Id">&#10008;</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+

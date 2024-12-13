@@ -1,0 +1,30 @@
+﻿@model Villancicos2024.Models.ViewModels.AgregarViewModel
+@{
+	Layout = "_Layout";
+} 
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<section>
+	<form method="post" action="~/Home/Agregar">
+		<div class="caption">
+			<h2>Agregar villancico</h2>
+		</div>
+		<label>Nombre:</label>
+		<input asp-for="Nombre" type="text" />
+		<label>Compositor:</label>
+		<input asp-for="Compositor" type="text" />
+		<label>Año:</label> 
+		<input asp-for="Anyo" type="number" maxlength="4" />
+		<label>Letra:</label>
+		<textarea asp-for="Letra" rows="10"></textarea>
+		<label>Video (URL):</label>
+		<input asp-for="Url" type="url" />
+
+		<div class="botones">
+			<p id="error">@Html.ValidationSummary(true)</p>
+			<input type="submit" value="Agregar" />
+			<a href="~/Home/Index">Cancelar</a>
+		</div>
+
+	</form>
+
+</section>
